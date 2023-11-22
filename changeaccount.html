@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontodaten ändern</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Styling für die Kontodaten ändern Seite */
+        #changeAccount {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #changeAccount h2 {
+            color: #555;
+        }
+
+        #changeAccount label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        #changeAccount input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Worldmoney</h1>
+        <button onclick="goToMainMenu()">Zurück zum Hauptmenu</button>
+    </header>
+
+    <!-- Kontodaten ändern Seite -->
+    <section id="changeAccount">
+        <h2>Kontodaten ändern</h2>
+        <label for="newUsername">Neuer Benutzername:</label>
+        <input type="text" id="newUsername" placeholder="Gib deinen neuen Benutzernamen ein">
+        <label for="newPassword">Neues Passwort:</label>
+        <input type="password" id="newPassword" placeholder="Gib dein neues Passwort ein">
+        <button onclick="changeAccount()">Änderungen speichern</button>
+    </section>
+
+    <script>
+        // Funktion zum Ändern der Kontodaten (Beispiel)
+        function changeAccount() {
+            const newUsername = document.getElementById("newUsername").value;
+            const newPassword = document.getElementById("newPassword").value;
+            alert(`Benutzername: ${newUsername}, Passwort: ${newPassword}`);
+        }
+
+        // Funktion zum Zurückkehren zum Hauptmenu
+        function goToMainMenu() {
+            // Hier wird die Weiterleitung zur Hauptmenu-Seite durchgeführt
+            window.location.href = "memberportal.html";
+        }
+    </script>
+</body>
+</html>

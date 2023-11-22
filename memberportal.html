@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Dashboard</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #000000;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        /* Verbessertes Styling für den Einlösebereich */
+        #redeemPoints {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        #redeemPoints h2 {
+            color: #555;
+        }
+
+        #redeemPoints p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        #redeemPoints a {
+            display: inline-block;
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #redeemPoints a:hover {
+            background-color: #555;
+        }
+
+        #redeemPoints label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #333;
+        }
+
+        #redeemPoints input {
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Worldmoney</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="changeaccount.html">Kontodaten ändern</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="loyaltyPoints">
+        <h2>Treuepunkte</h2>
+        <p id="pointsDisplay">Loading...</p>
+        <button onclick="loadTransactionHistory()">Transaktionshistorie anzeigen</button>
+    </section>
+
+    <section id="latestMessages">
+        <h2>Neueste Nachrichten</h2>
+        <ul id="messagesList">
+            <!-- Nachrichten werden hier dynamisch hinzugefügt -->
+        </ul>
+    </section>
+
+    <!-- Verbesserter Einlösebereich -->
+    <section id="redeemPoints">
+        <h2>Punkte einlösen</h2>
+        <p>Dein aktueller Punktestand: <span id="redeemPointsDisplay">Loading...</span></p>
+        <a href="redeem.html">Punkte einlösen</a>
+    </section>
+
+    <script>
+        // Beispiel-Daten für Treuepunkte und Nachrichten
+        const loyaltyPoints = 1500;
+        const messages = [
+            { id: 1, text: "Willkommen im Mitgliederbereich!" },
+            { id: 2, text: "Neue Angebote verfügbar." },
+        ];
+
+        // Funktion zum Laden der Treuepunkte und Anzeigen in der Benutzeroberfläche
+        function loadLoyaltyPoints() {
+            document.getElementById("pointsDisplay").textContent = `Aktuelle Treuepunkte: ${loyaltyPoints}`;
+            document.getElementById("redeemPointsDisplay").textContent = loyaltyPoints;
+        }
+
+        // Funktion zum Laden der neuesten Nachrichten und Anzeigen in der Benutzeroberfläche
+        function loadLatestMessages() {
+            const messagesList = document.getElementById("messagesList");
+
+            messages.forEach(message => {
+                const listItem = document.createElement("li");
+                listItem.textContent = message.text;
+                messagesList.appendChild(listItem);
+            });
+        }
+
+        // Funktion zum Laden der Transaktionshistorie (Beispiel)
+        function loadTransactionHistory() {
+            // Hier müsste eine Anfrage an das Backend gesendet werden, um die Transaktionshistorie zu erhalten
+            alert("Transaktionshistorie anzeigen");
+        }
+
+        // Initialisierung der Seite
+        loadLoyaltyPoints();
+        loadLatestMessages();
+    </script>
+</body>
+</html>
